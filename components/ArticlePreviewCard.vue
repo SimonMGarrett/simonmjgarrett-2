@@ -56,9 +56,6 @@ export default {
     padding-right: 3rem;
     height: auto;
     width: 100%;
-
-    & img {
-    }
   }
 
   & .info {
