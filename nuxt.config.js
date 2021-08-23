@@ -54,11 +54,7 @@ export default {
   build: {
     postcss: {
       plugins: {
-        'postcss-extend-rule': {},
-        'postcss-advanced-variables': {},
-        'postcss-atroot': {},
-        'postcss-property-lookup': {},
-        'postcss-nested': {}
+        'postcss-nesting': {},
       }
     }
   }

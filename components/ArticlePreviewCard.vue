@@ -12,15 +12,18 @@
 
       <div class="authored">
         <img
-          class="h-12 w-12 rounded-full"
           :src="article.author_img"
           alt="Author image"
         />
-        {{ article.author }}
-        {{ article.date_created }}
-        <span v-if="article.date_updated !== article.date_created">
-          Updated: {{ article.date_updated }}
-        </span>
+        <div class="author">
+          {{ article.author }}
+        </div>
+        <div>
+          {{ article.date_created }}
+          <span v-if="article.date_updated !== article.date_created">
+            Updated: {{ article.date_updated }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -48,14 +51,12 @@ export default {
 </script>
 
 <style scoped>
-.article {
+.article-preview-card {
   display: flex;
 
   & .image {
     flex: 0 0 35%;
     padding-right: 3rem;
-    height: auto;
-    width: 100%;
   }
 
   & .info {
@@ -65,6 +66,11 @@ export default {
       opacity: 0.5;
       font-size: 12px;
       margin-bottom: 3rem;
+
+      & img {
+        width: 3rem;
+        height: auto;
+      }
     }
   }
 }
