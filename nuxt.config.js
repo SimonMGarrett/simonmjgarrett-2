@@ -16,7 +16,11 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+    ],
+    script: [
+      { src: 'https://plausible.io/js/plausible.js', defer: true, dataDomain: "simonmgarrett.com" }
     ]
+    // <script defer data-domain="simonmgarrett.com" src="https://plausible.io/js/plausible.js"></script>
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -39,15 +43,23 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-  ],
+  modules: ['@nuxt/http'],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  // HTTP module
+  http: {
+    // proxyHeaders: false
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    postcss: {
+      plugins: {
+        'postcss-extend-rule': {},
+        'postcss-advanced-variables': {},
+        'postcss-atroot': {},
+        'postcss-property-lookup': {},
+        'postcss-nested': {}
+      }
+    }
   }
 }

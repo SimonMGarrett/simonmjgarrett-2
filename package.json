@@ -11,7 +11,7 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
+    "@nuxt/http": "^0.6.4",
     "core-js": "^3.15.1",
     "nuxt": "^2.15.7"
   },
@@ -25,6 +25,12 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.12.1",
     "postcss": "^8.3.5",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-atroot": "^0.2.3",
+    "postcss-extend-rule": "^3.0.0",
+    "postcss-nested": "^5.0.6",
+    "postcss-nesting": "^8.0.1",
+    "postcss-property-lookup": "^3.0.0",
     "prettier": "^2.3.2"
   }
 }
