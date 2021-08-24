@@ -3254,6 +3254,11 @@ cyclist@^1.0.1:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
 
+daisyui@^1.13.2:
+  version "1.13.2"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.13.2.tgz#61daeba7448d2c1a8a9ca1396d5f3126f092a4d4"
+  integrity sha512-aG+2NiyMIBRxgm5KDB93gbA6DWbjnqxkQ/+H1nUaVc7pesThRtpf4AjJED6FI6h2603FF70+N9akbq6lUvV+Gg==
+
 de-indent@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/de-indent/-/de-indent-1.0.2.tgz#b2038e846dc33baa5796128d0804b455b8c1e21d"

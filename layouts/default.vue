@@ -13,7 +13,9 @@
   background-color: #f7f7f7;
 
   & .content-wrapper {
-    padding-top: 6rem;
+    position: relative;
+    z-index: 1;
+    padding-top: 12rem;
   }
 }
 </style>

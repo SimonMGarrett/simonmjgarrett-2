@@ -1,19 +1,59 @@
 <template>
-  <div class="logo">SIMON MJ GARRETT.</div>
+  <div class="header-wrapper shadow-md">
+    <header class="tramlined">
+      <div class="social-and-search py-2">
+        <div class="social">F In YouTube</div>
+        <div class="form-control search">
+          <input type="text" placeholder="Search" class="input input-bordered py-2 h-8 rounded-none">
+        </div>
+      </div>
+
+      <div class="logo">DR. SIMON MJ GARRETT.</div>
+      <div class="strapline">Developer. Writer. Ex-academic. Partner. Dad.</div>
+
+      <hr>
+
+      <nav class="navbar">
+        <div class="hidden px-2 mx-2 navbar-center lg:flex">
+          <div class="flex items-stretch">
+            <a class="btn btn-ghost btn-sm rounded-btn">
+                    Home
+                  </a> 
+            <a class="btn btn-ghost btn-sm rounded-btn">
+                    Portfolio
+                  </a> 
+            <a class="btn btn-ghost btn-sm rounded-btn">
+                    About
+                  </a> 
+            <a class="btn btn-ghost btn-sm rounded-btn">
+                    Contact
+                  </a>
+          </div>
+        </div> 
+      </nav>
+    </header>
+  </div>
 </template>
 
 <style scoped>
-.logo {
+.header-wrapper {
   background-color: #fff;
-  text-align: center;
-  font-size: 3rem;
-  letter-spacing: 1.25rem;
-  font-family: Courier New, Helvetica, sans-serif;
-  font-weight: 100;
-  height: 5rem;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   position: fixed;
-  width: 100vw;
+  z-index: 2;
+  width: 100%;
+
+  & header {
+    text-align: center;
+
+    & .social-and-search {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & nav.navbar {
+      justify-content: center;
+    }
+  }
 }
 
 /* .typed {

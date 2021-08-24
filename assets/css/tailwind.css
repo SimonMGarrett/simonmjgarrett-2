@@ -1,4 +1,6 @@
 @tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   h1 {
@@ -22,5 +24,10 @@
       Noto Sans, sans-serif, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue',
       Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji',
       'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+
+  .tramlined {
+    max-width: 1140px;
+    margin: 0 auto;
   }
 }
