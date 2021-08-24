@@ -61,6 +61,7 @@ export default {
 .article-preview-card {
   width: 360px;
   cursor: pointer;
+  margin: 1rem;
 
   & .image {
     /* padding-right: 3rem; */
