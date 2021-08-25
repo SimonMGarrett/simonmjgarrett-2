@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="article-cards">
     <ArticlePreviewCard
       v-for="article in articles"
       :key="article.id"
@@ -16,12 +16,12 @@ export default {
     const prefix = 'http://api.darkgatecloud.com:8055' // TODO: get this from somewhere central
     const articlesObj = await $http.$get(`${prefix}/items/article/`)
     const articles = articlesObj.data
-    const cleanedArticles = [];
+    const cleanedArticles = []
 
     articles.forEach((article) => {
       article.main_img = `${prefix}/assets/${article.main_img}`
       article.author_img = `${prefix}/assets/${article.author_img}`
-    
+
       cleanedArticles.push(JSON.parse(JSON.stringify(article)))
     })
 
@@ -29,3 +29,10 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.article-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

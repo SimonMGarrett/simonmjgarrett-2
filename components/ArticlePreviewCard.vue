@@ -1,5 +1,5 @@
 <template>
-  <div class="article-preview-card card shadow-xl rounded-none bg-white m-3">
+  <div class="article-preview-card card shadow-md rounded-none bg-white m-3">
     <figure class="image w-full">
       <img :src="article.main_img" alt="Article image" />
     </figure>
@@ -15,18 +15,16 @@
         <div class="subtitle mb-4">{{ article.subtitle }}</div>
 
         <div class="authored">
-          <img
-            :src="article.author_img"
-            alt="Author image"
-          />
+          <img :src="article.author_img" alt="Author image" />
           <div class="author pl-4">
             <div class="author-text font-bold">
               {{ article.author }}
             </div>
-            <div class="created">
-              Created: {{ article.date_created }}
-            </div>
-            <div v-if="article.date_updated !== article.date_created" class="updated" >
+            <div class="created">Created: {{ article.date_created }}</div>
+            <div
+              v-if="article.date_updated !== article.date_created"
+              class="updated"
+            >
               Updated: {{ article.date_updated }}
             </div>
           </div>
@@ -73,14 +71,14 @@ export default {
 
   & .info {
     & .title {
-      font-size: 1.5rem;
+      font-size: 21px;
       font-weight: 800;
       line-height: 1.25;
     }
     & .subtitle {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 500;
-      line-height: 1.125;
+      line-height: 1.25;
       opacity: 0.7;
     }
     & .authored {

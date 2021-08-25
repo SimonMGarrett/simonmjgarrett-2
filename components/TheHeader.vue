@@ -1,39 +1,116 @@
 <template>
-  <div class="header-wrapper shadow-md">
+  <div class="header-wrapper shadow-lg">
     <header class="tramlined">
-      <div class="social-and-search py-2">
-        <div class="social">F In YouTube</div>
-        <div class="form-control search">
-          <input type="text" placeholder="Search" class="input input-bordered py-2 h-8 rounded-none">
-        </div>
+      <div class="logo mt-4">DR. SIMON MJ GARRETT</div>
+      <div class="strapline text-gray-400">
+        Developer . Writer . Ex-academic . Partner . Dad
       </div>
 
-      <div class="logo">DR. SIMON MJ GARRETT.</div>
-      <div class="strapline">Developer. Writer. Ex-academic. Partner. Dad.</div>
-
-      <hr>
+      <hr class="mt-4 w-1/2 mx-auto" />
 
       <nav class="navbar">
+        <div class="social">
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://www.facebook.com/bertramandbean/"
+            class="social-icons mr-6"
+            title="facebook"
+          >
+            <bnb-icon
+              :path-info="icons.mdiFacebook"
+              class="text-gray-400"
+              height="32"
+              width="32"
+            />
+          </a>
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://twitter.com/BertramAndBean"
+            class="social-icons svg-white mr-6"
+            title="twitter"
+          >
+            <bnb-icon
+              :path-info="icons.mdiLinkedin"
+              class="text-gray-400"
+              height="32"
+              width="32"
+            />
+          </a>
+          <a
+            rel="noopener"
+            target="_blank"
+            href="https://www.instagram.com/bertramandbean/"
+            class="
+              social-icons
+              svg-white
+              mr-2
+              umami--click--instagram-social-button
+              ga--click--instagram-social-button
+            "
+            title="instagram"
+          >
+            <bnb-icon
+              :path-info="icons.mdiGithub"
+              class="text-gray-400"
+              height="32"
+              width="32"
+            />
+          </a>
+        </div>
+
         <div class="hidden px-2 mx-2 navbar-center lg:flex">
           <div class="flex items-stretch">
-            <a class="btn btn-ghost btn-sm rounded-btn">
-                    Home
-                  </a> 
-            <a class="btn btn-ghost btn-sm rounded-btn">
-                    Portfolio
-                  </a> 
-            <a class="btn btn-ghost btn-sm rounded-btn">
-                    About
-                  </a> 
-            <a class="btn btn-ghost btn-sm rounded-btn">
-                    Contact
-                  </a>
+            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+              Home
+            </a>
+            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+              Portfolio
+            </a>
+            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+              About
+            </a>
+            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+              Contact
+            </a>
           </div>
-        </div> 
+        </div>
+
+        <div class="form-control search">
+          <input
+            type="text"
+            placeholder="Search"
+            class="input input-bordered py-2 h-8 rounded-none"
+          />
+        </div>
       </nav>
     </header>
   </div>
 </template>
+
+<script>
+import { mdiFacebook, mdiLinkedin, mdiGithub } from '@mdi/js'
+import { BNBIcon } from 'bertramandbean-component-library'
+
+export default {
+  components: {
+    'bnb-icon': BNBIcon,
+  },
+
+  data() {
+    return {
+      drawer: false, // hamburger links drawer
+      menuItems: [],
+      icons: {
+        mdiFacebook,
+        mdiLinkedin,
+        mdiGithub,
+      },
+    }
+  },
+}
+</script>
 
 <style scoped>
 .header-wrapper {
@@ -50,22 +127,24 @@
       justify-content: space-between;
     }
 
+    & .logo {
+      font-size: 3.5rem;
+      font-weight: lighter;
+      font-weight: 100;
+      letter-spacing: 12px;
+    }
+
+    & .strapline {
+      font-size: 1.25rem;
+      font-weight: 200;
+      font-weight: light;
+      letter-spacing: 6px;
+    }
+
     & nav.navbar {
-      justify-content: center;
+      display: flex;
+      justify-content: space-between;
     }
   }
 }
-
-/* .typed {
-  background: rgb(9, 9, 121);
-  background: linear-gradient(
-    163deg,
-    rgba(9, 9, 21, 0.4) 0%,
-    rgba(221, 220, 220, 0.6) 50%,
-    rgba(55, 65, 81, 0.1) 100%
-  );
-  border-radius: 3px;
-  text-align: center;
-  padding: 0 0.25rem;
-} */
 </style>

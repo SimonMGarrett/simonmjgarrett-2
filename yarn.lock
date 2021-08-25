@@ -969,6 +969,11 @@
     methods "^1.1.2"
     path-to-regexp "^6.1.0"
 
+"@mdi/js@^5.9.55":
+  version "5.9.55"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-5.9.55.tgz#8f5bc4d924c23f30dab20545ddc768e778bbc882"
+  integrity sha512-BbeHMgeK2/vjdJIRnx12wvQ6s8xAYfvMmEAVsUx9b+7GiQGQ9Za8jpwp17dMKr9CgKRvemlAM4S7S3QOtEbp4A==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -2175,6 +2180,11 @@ base@^0.11.1:
     isobject "^3.0.1"
     mixin-deep "^1.2.0"
     pascalcase "^0.1.1"
+
+bertramandbean-component-library@^0.0.62:
+  version "0.0.62"
+  resolved "https://registry.yarnpkg.com/bertramandbean-component-library/-/bertramandbean-component-library-0.0.62.tgz#a993783dcd0a4486b6f8a7621dfd04a4e441fe81"
+  integrity sha512-bxUO0hHmxOLVFTqIzHbr8UiC47KAxyEXx/2uiKttvwSi3/PZaK0d7QWiYEY5RzdeKY9+u8AOeon+hx9rJkszhw==
 
 big.js@^5.2.2:
   version "5.2.2"
