@@ -22,7 +22,8 @@ const formatDatetime = (dt) => {
 
 export default {
   async asyncData({ query, $http }) {
-    // Build the query string
+    // Build the query string from the query Object. If the query Object has
+    // one key, the value is a string; if it has two, the value is an array.
     let qs = ''
 
     // 1 - search
