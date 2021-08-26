@@ -15,6 +15,25 @@
     @apply text-xl font-bold mt-4 mb-2;
   }
 
+  .code-label {
+    margin-top: 1rem;
+    background-color: #333;
+    color: #eee;
+    text-align: right;
+    padding-right: 0.5rem;
+    font-family: 'Courier New', Courier;
+    font-size: 16px;
+  }
+  pre code {
+    margin: 0 0 1rem 0;
+  }
+
+  p code {
+    background-color: #fec;
+    font-family: 'Courier New', Courier;
+    padding: 0 0.25rem;
+  }
+
   .no-top {
     @apply mt-0;
   }
@@ -29,5 +48,10 @@
   .tramlined {
     max-width: 1280px;
     margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .smjg-link {
+    @apply text-gray-500 hover:underline hover:text-gray-700;
   }
 }

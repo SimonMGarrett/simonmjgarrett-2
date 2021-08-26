@@ -15,7 +15,7 @@
   & .content-wrapper {
     position: relative;
     z-index: 1;
-    padding-top: 16rem;
+    padding-top: 18rem;
     min-height: 100vh;
   }
 }

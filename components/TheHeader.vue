@@ -1,9 +1,14 @@
 <template>
   <div class="header-wrapper shadow-lg">
     <header class="tramlined">
-      <div class="logo mt-4">DR. SIMON MJ GARRETT</div>
-      <div class="strapline text-gray-400">
-        Developer . Writer . Ex-academic . Partner . Dad
+      <div
+        class="logo mt-4 subpixel-antialiased cursor-pointer"
+        @click="$router.push('/')"
+      >
+        SIMON MJ GARRETT
+      </div>
+      <div class="strapline text-gray-400 subpixel-antialiased">
+        Full-stack developer . Writer . Partner . Dad
       </div>
 
       <hr class="mt-4 w-1/2 mx-auto" />
@@ -13,76 +18,77 @@
           <a
             rel="noopener"
             target="_blank"
-            href="https://www.facebook.com/bertramandbean/"
+            href="https://www.facebook.com/simonmgarrett/"
             class="social-icons mr-6"
             title="facebook"
           >
             <bnb-icon
               :path-info="icons.mdiFacebook"
               class="text-gray-400"
-              height="32"
-              width="32"
+              height="30"
+              width="30"
             />
           </a>
+
           <a
             rel="noopener"
             target="_blank"
-            href="https://twitter.com/BertramAndBean"
-            class="social-icons svg-white mr-6"
-            title="twitter"
+            href="https://www.linkedin.com/in/simon-garrett-768b0010/"
+            class="social-icons mr-6"
+            title="linked-in"
           >
             <bnb-icon
               :path-info="icons.mdiLinkedin"
               class="text-gray-400"
-              height="32"
-              width="32"
+              height="30"
+              width="30"
             />
           </a>
+
           <a
             rel="noopener"
             target="_blank"
-            href="https://www.instagram.com/bertramandbean/"
-            class="
-              social-icons
-              svg-white
-              mr-2
-              umami--click--instagram-social-button
-              ga--click--instagram-social-button
-            "
-            title="instagram"
+            href="https://github.com/SimonMGarrett"
+            class="social-icons"
+            title="github"
           >
             <bnb-icon
               :path-info="icons.mdiGithub"
               class="text-gray-400"
-              height="32"
-              width="32"
+              height="30"
+              width="30"
             />
           </a>
         </div>
 
         <div class="hidden px-2 mx-2 navbar-center lg:flex">
           <div class="flex items-stretch">
-            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+            <a class="mx-8 smjg-link" href="/">
               Home
             </a>
-            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
-              Portfolio
+            <a class="mx-8 smjg-link" href="/articles">
+              Articles
             </a>
-            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+            <a class="mx-8 smjg-link" href="/notes">
+              Notes
+            </a>
+            <a class="mx-8 smjg-link" href="/about">
               About
             </a>
-            <a class="mx-8 text-gray-500 hover:underline hover:text-gray-700">
+            <a class="mx-8 smjg-link" href="/contact">
               Contact
             </a>
           </div>
         </div>
 
         <div class="form-control search">
-          <input
-            type="text"
-            placeholder="Search"
-            class="input input-bordered py-2 h-8 rounded-none"
-          />
+          <form action="" method="get" @submit.prevent="doSearch">
+            <input
+              type="text"
+              placeholder="Search"
+              class="search-terms input input-bordered py-2 h-8 rounded-none"
+            />
+          </form>
         </div>
       </nav>
     </header>
@@ -109,6 +115,30 @@ export default {
       },
     }
   },
+
+  methods: {
+    doSearch() {
+      const query = document.querySelector('.search-terms').value
+
+      // Build the query string
+      let qs = ''
+
+      // 1 - search
+      if (query) {
+        const searchArr = query.split(' ')
+        searchArr.forEach((item, indx) => {
+          if (indx > 0) {
+            qs += '&'
+          }
+          qs += `search=${item}`
+        })
+      }
+
+      console.log('query', query, 'qs', qs)
+
+      location.href = `${location.origin}/?${qs}`
+    }
+  }
 }
 </script>
 
@@ -121,6 +151,7 @@ export default {
 
   & header {
     text-align: center;
+    padding: 1rem;
 
     & .social-and-search {
       display: flex;
@@ -144,6 +175,15 @@ export default {
     & nav.navbar {
       display: flex;
       justify-content: space-between;
+      padding: 0.5rem 0;
+
+      & .social {
+        flex: 0 0 181px;
+      }
+
+      & .form-control.search {
+        flex: 0 0 181px;
+      }
     }
   }
 }

@@ -11,7 +11,7 @@
   >
     {{ new Date().getFullYear() }}
     &nbsp;&nbsp;|&nbsp;&nbsp; SIMON MJ GARRETT &nbsp;&nbsp;|&nbsp;&nbsp; a
-    <a class="inline-block link" href="https://bertramandbean.com"
+    <a class="inline-block smjg-link underline" href="https://bertramandbean.com"
       >BERTRAM+BEAN</a
     >
     site

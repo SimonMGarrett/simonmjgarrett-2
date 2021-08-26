@@ -1,36 +1,41 @@
 <template>
   <div class="article-preview-card card shadow-md rounded-none bg-white m-3">
-    <figure class="image w-full">
-      <img :src="article.main_img" alt="Article image" />
-    </figure>
+    <router-link
+      :to="`/articles/${article.slug}`"
+      class="wrapper-link"
+    >
+      <figure class="image w-full">
+        <img :src="article.main_img" alt="Article image" />
+      </figure>
 
-    <div class="card-body">
-      <div class="tags w-full">
-        <div class="badge">Tag2</div>
-        <div class="badge">Tag2</div>
-      </div>
+      <div class="card-body">
+        <div class="tags w-full">
+          <div class="badge">Tag2</div>
+          <div class="badge">Tag2</div>
+        </div>
 
-      <div class="info w-full">
-        <div class="no-top title mt-4 mb-2">{{ article.title }}</div>
-        <div class="subtitle mb-4">{{ article.subtitle }}</div>
+        <div class="info w-full">
+          <div class="no-top title mt-4 mb-2">{{ article.title }}</div>
+          <div class="subtitle mb-4">{{ article.subtitle }}</div>
 
-        <div class="authored">
-          <img :src="article.author_img" alt="Author image" />
-          <div class="author pl-4">
-            <div class="author-text font-bold">
-              {{ article.author }}
-            </div>
-            <div class="created">Created: {{ article.date_created }}</div>
-            <div
-              v-if="article.date_updated !== article.date_created"
-              class="updated"
-            >
-              Updated: {{ article.date_updated }}
+          <div class="authored">
+            <img :src="article.author_img" alt="Author image" />
+            <div class="author pl-4">
+              <div class="author-text font-bold">
+                {{ article.author }}
+              </div>
+              <div class="created">Created: {{ article.date_created }}</div>
+              <div
+                v-if="article.date_updated !== article.date_created"
+                class="updated"
+              >
+                Updated: {{ article.date_updated }}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -87,8 +92,9 @@ export default {
 
       & img {
         flex: 0 0 3rem;
+        align-self: center;
         width: 3rem;
-        height: auto;
+        height: 3rem;
         border-radius: 100%;
       }
 

@@ -1,18 +1,21 @@
 HEADER
 ☐ Shrink header on scroll (remove strapline and shrink height)
-☐ Settle on strapline text
-☐ Settle on choice of links
-☐ Setup social accounts
+✔ Settle on strapline text @done(21-08-26 13:56)
+✔ Settle on choice of links @done(21-08-26 13:56)
+✔ Setup social accounts @done(21-08-26 13:56)
 
 SEARCH RESULTS PAGE
+☐ Create it!
+☐ Only show PUBLISHED articles and notes, both in the search results and the index page (which will probably end up as a search results component)
 
 ARTICLE CARD
-☐ Fix date format
+✔ Fix date format @done(21-08-25 09:27)
 ☐ Get tags working:
   ☐ (a) so they are the correct tags
   ☐ (b) so clicking them takes us to a search results page for that tag
 
 ARTICLE PAGE
+☐ Sort out head() data
 
 ABOUT PAGE
 ☐ Keep it short but make it tug on the heartstrings.
@@ -30,6 +33,9 @@ FOOTER
 ☐ Add other 'always at the bottom' sections like 'prev', 'next' articles (by date), and a triple of random articles (might need a small card for these).
 ☐ Subscribe form, to be notified of new posts
 
+REFACTOR
+☐ Put the avatar code in a generic component or use the BNB component that exists.
+
 SOCIAL
 ☐ Join local Aber groups, Coding groups (and contribute), etc. Maybe do more on Stackoverflow, looking for questions that I can provide value for.
 ☐ Start to use my normal FB for business, create a new LinkedIn, Setup Github properly
@@ -38,3 +44,6 @@ TOPICS
 ☐ Coding issues I've fixed
 ☐ The need for joined-up business systems, with examples of it working well
 
+NEXT UP
+☐ Update B+B
+☐ Do JUBS website
