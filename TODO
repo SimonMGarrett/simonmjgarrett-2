@@ -1,31 +1,33 @@
 HEADER
-☐ Shrink header on scroll (remove strapline and shrink height)
 ✔ Settle on strapline text @done(21-08-26 13:56)
 ✔ Settle on choice of links @done(21-08-26 13:56)
 ✔ Setup social accounts @done(21-08-26 13:56)
+✔ Why does the menu disappear? Need to make it a slide-in slider @done(21-08-27 16:50)
+✔ Shrink header on scroll (remove strapline and shrink height) @done(21-08-27 16:50)
 
 SEARCH RESULTS PAGE (really it's the index page that can be used as homepage, article page, notes page etc)
 ✔ Create it! @done(21-08-26 18:56)
 ✔ Only show PUBLISHED articles and notes, both in the search results and the index page (which will probably end up as a search results component) @done(21-08-26 19:30)
+✔ Show a title that says what's being displayed @done(21-08-27 15:55)
 
 ARTICLE PREVIEW CARD
 ✔ Fix date format @done(21-08-25 09:27)
-☐ Make a tags component
-☐ Make an author component
-☐ Get tags working:
-  ☐ (a) so they are the correct tags
-  ☐ (b) so clicking them takes us to a search results page for that tag
-☐ Consider having 'Tags', 'Links' sections etc as a sidebar to the left of the cards (and on Article + Note)
+✔ Make a tags component @done(21-08-27 13:36)
+✔ Make an author component @done(21-08-27 13:36)
+✔ Get tags working: @done(21-08-27 13:37)
+  ✔ (a) so they are the correct tags @done(21-08-27 13:37)
+  ✔ (b) so clicking them takes us to a search results page for that tag @done(21-08-27 13:37)
+✔ Consider having 'Tags', 'Links' sections etc as a sidebar to the left of the cards (and on Article + Note) @done(21-08-27 15:55)
 
 ARTICLE (_slug) PAGE
 ☐ Sort out head() data
-☐ Design the page properly
-☐ Use the same components created in ARTICLE PREVIEW CARD
+✔ Design the page properly @done(21-08-27 13:37)
+✔ Use the same components created in ARTICLE PREVIEW CARD @done(21-08-27 13:37)
 
 NOTES (_slug + Directus)
-☐ Create the Note table in Directus, perhaps with slight changes from the Article table
-☐ Create the notes, based on the code for the articles
-☐ Design the page, though it will be largely the same as Articles
+✘ Create the Note table in Directus, perhaps with slight changes from the Article table @cancelled(21-08-27 13:37)
+✘ Create the notes, based on the code for the articles @cancelled(21-08-27 13:37)
+✘ Design the page, though it will be largely the same as Articles @cancelled(21-08-27 13:37)
 
 ABOUT PAGE
 ☐ Keep it short but make it tug on the heartstrings.

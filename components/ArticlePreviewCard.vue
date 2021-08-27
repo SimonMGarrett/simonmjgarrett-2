@@ -1,31 +1,19 @@
 <template>
-  <div class="article-preview-card card shadow-md rounded-none bg-white m-3">
+  <div class="article-preview-card card rounded-none bg-white">
     <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
-      <figure class="image w-full">
-        <img :src="article.main_img" alt="Article image" />
-      </figure>
+      <div class=" inner-wrapper flex">
+        <figure class="image w-full" :style="`background-image: url(${article.main_img})`">
+          <img class="image-img" :src="article.main_img" alt="Article image" />
+        </figure>
 
-      <div class="card-body">
-        <TheTags :tags="article.tags" />
+        <div class="card-body justify-self-center self-center py-0">
+          <!-- <TheTags :tags="article.tags" /> -->
 
-        <div class="info w-full">
-          <div class="no-top title mt-4 mb-2">{{ article.title }}</div>
-          <div class="subtitle mb-4">{{ article.subtitle }}</div>
+          <div class="info w-full">
+            <div class="title mt-0 mb-2">{{ article.title }}</div>
+            <div class="subtitle mb-4">{{ article.subtitle }}</div>
 
-          <div class="authored">
-            <img :src="article.author_img" alt="Author image" />
-            <div class="author pl-4">
-              <div class="author-text font-bold">
-                {{ article.author }}
-              </div>
-              <div class="created">Created: {{ article.date_created }}</div>
-              <div
-                v-if="article.date_updated !== article.date_created"
-                class="updated"
-              >
-                Updated: {{ article.date_updated }}
-              </div>
-            </div>
+            <AuthorInfo :article="article" />
           </div>
         </div>
       </div>
@@ -56,12 +44,18 @@ export default {
 
 <style scoped>
 .article-preview-card {
-  width: 360px;
+  width: 640px;
   cursor: pointer;
   margin: 1rem;
+  margin-right: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0, 0.125), 0 2px 4px rgba(0,0,0, 0.25);
+
+  /* & .inner-wrapper {
+  } */
 
   & .image {
     /* padding-right: 3rem; */
+    flex: 0 0 320px;
   }
 
   & .tags {
@@ -80,22 +74,26 @@ export default {
       line-height: 1.25;
       opacity: 0.7;
     }
-    & .authored {
-      display: flex;
-      font-size: 12px;
+  }
+}
 
-      & img {
-        flex: 0 0 3rem;
-        align-self: center;
-        width: 3rem;
-        height: 3rem;
-        border-radius: 100%;
-      }
+@media (max-width: 690px) {
+  .article-preview-card {
+    width: 440px;
+    height: auto;
 
-      & .author {
-        align-self: center;
-        opacity: 0.7;
+    & .image {
+      flex: 0 0 160px;
+      background-size: cover;
+      background-position: center;
+
+      & .image-img {
+        display: none;
       }
+    }
+
+    & .info {
+      height: 240px;
     }
   }
 }
