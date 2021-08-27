@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -53,6 +55,26 @@ export default {
   // ENV vars
   env: {
     apiPrefix: 'http://api.darkgatecloud.com:8055',
+  },
+
+  generate: {
+    async routes () {
+      // Get all articles
+      const articlesObj = await axios.get(`http://api.darkgatecloud.com:8055/items/article/?fields=slug`)
+      const articleSlugs = articlesObj.data.data;
+
+      console.log('articleSlugs', articleSlugs)
+
+      const rtnArr = articleSlugs.map((elem) => {
+        return {
+          route: `/articles/${elem.slug}`,
+          payload: {},
+        }
+      })
+
+      console.log('  :.. content files found:', rtnArr.length) // eslint-disable-line no-console
+      return rtnArr
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
