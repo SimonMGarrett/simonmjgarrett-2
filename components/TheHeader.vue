@@ -7,14 +7,14 @@
       >
         SIMON MJ GARRETT
       </div>
-      <div class="strapline text-gray-400 subpixel-antialiased">
+      <div class="strapline hidden lg:block text-gray-400 subpixel-antialiased">
         Full-stack developer . Writer . Partner . Dad
       </div>
 
-      <hr class="mt-4 w-1/2 mx-auto" />
+      <hr class="mt-4 mb-4 w-1/2 mx-auto" />
 
-      <nav class="navbar">
-        <div class="social">
+      <nav class="navbar block lg:flex">
+        <div class="social hidden lg:flex">
           <a
             rel="noopener"
             target="_blank"
@@ -61,28 +61,38 @@
           </a>
         </div>
 
-        <div class="hidden px-2 mx-2 navbar-center lg:flex">
+        <div class="flex px-2 mx-auto lg:mx-2 navbar-center">
           <div class="flex items-stretch">
             <a class="mx-8 smjg-link" href="/"> Home/All </a>
-            <a class="mx-8 smjg-link" href="/?content_type=article">
+            <a class="hidden lg:block mx-8 smjg-link" href="/?content_type=article">
               Articles
             </a>
-            <a class="mx-8 smjg-link" href="/?content_type=note"> Notes </a>
+            <a class="hidden lg:block mx-8 smjg-link" href="/?content_type=note"> Notes </a>
             <a class="mx-8 smjg-link" href="/about"> About </a>
             <a class="mx-8 smjg-link" href="/contact"> Contact </a>
           </div>
         </div>
 
-        <div class="form-control search">
+        <div class="form-control search hidden lg:block">
           <form action="" method="get" @submit.prevent="doSearch">
             <input
               type="text"
               placeholder="Search"
-              class="search-terms input input-bordered py-2 h-8 rounded-none"
+              class="search-terms s1 input input-bordered py-2 h-8 rounded-none"
             />
           </form>
         </div>
       </nav>
+
+      <div class="block lg:hidden form-control search">
+        <form action="" method="get" @submit.prevent="doSearch">
+          <input
+            type="text"
+            placeholder="Search"
+            class="search-terms s2 input input-bordered py-2 h-8 rounded-none"
+          />
+        </form>
+      </div>
     </header>
   </div>
 </template>
@@ -110,7 +120,9 @@ export default {
 
   methods: {
     doSearch() {
-      const query = document.querySelector('.search-terms').value
+      const query1 = document.querySelector('.search-terms.s1').value
+      const query2 = document.querySelector('.search-terms.s2').value
+      const query = query1 || query2
 
       // Build the query string
       let qs = ''
@@ -172,6 +184,19 @@ export default {
 
       & .form-control.search {
         flex: 0 0 181px;
+      }
+    }
+  }
+}
+
+@media (max-width: 705px) {
+  .header-wrapper {
+    & header {
+      & .logo {
+        font-size: 2rem;
+        font-weight: light;
+        font-weight: 200;
+        letter-spacing: 6px;
       }
     }
   }

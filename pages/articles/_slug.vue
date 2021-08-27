@@ -7,13 +7,19 @@
     >
       <!-- ARTICLE -->
       <div class="article-body">
+        <TheTags :tags="article.tags" />
+
         <!-- Heading -->
-        <h1 class="no-top" itemprop="name headline">
+        <h1 class="" itemprop="name headline">
           {{ article.title }}
         </h1>
-        <h2 class="text-gray-500" itemprop="name headline">
+        <h2 class="text-gray-500 no-top mb-8" itemprop="name headline">
           {{ article.subtitle }}
         </h2>
+
+        <AuthorInfo :article="article" :show-updated="true" />
+
+        <hr class="my-8" />
 
         <!-- Lead -->
         <!-- eslint-disable-next-line -->
@@ -32,6 +38,7 @@
 import 'highlight.js/styles/base16/ia-dark.css'
 import hljs from 'highlight.js'
 import javascript from 'highlight.js/lib/languages/javascript'
+import AuthorInfo from '~/components/AuthorInfo.vue'
 hljs.registerLanguage('javascript', javascript)
 
 const formatDatetime = (dt) => {
@@ -41,12 +48,12 @@ const formatDatetime = (dt) => {
 }
 
 export default {
-  components: {},
+  components: {AuthorInfo},
 
   async asyncData({ $http, env, params }) {
     const prefix = env.apiPrefix
     const articlesObj = await $http.$get(
-      `${prefix}/items/article?filter[slug][_eq]=${params.slug}`
+      `${prefix}/items/article?fields=*,tags.tag_id.*&filter[slug][_eq]=${params.slug}`
     )
     const article = articlesObj.data[0]
 
@@ -147,6 +154,10 @@ article.article-detail {
     flex: 1;
     overflow: hidden;
 
+    & .tags {
+      opacity: 0.33;
+    }
+    
     & .main-text {
       max-width: 100%;
 
