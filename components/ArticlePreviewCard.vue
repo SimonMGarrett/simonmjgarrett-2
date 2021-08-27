@@ -1,12 +1,15 @@
 <template>
-  <div class="article-preview-card card rounded-none bg-white">
+  <div class="article-preview-card card rounded-none bg-white m-4 lg:mr-0">
     <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
-      <div class=" inner-wrapper flex">
-        <figure class="image w-full" :style="`background-image: url(${article.main_img})`">
+      <div class="inner-wrapper flex">
+        <figure
+          class="image w-full"
+          :style="`background-image: url(${article.main_img})`"
+        >
           <img class="image-img" :src="article.main_img" alt="Article image" />
         </figure>
 
-        <div class="card-body justify-self-center self-center py-0">
+        <div class="card-body justify-self-center self-center py-0 pt-4">
           <!-- <TheTags :tags="article.tags" /> -->
 
           <div class="info w-full">
@@ -46,9 +49,7 @@ export default {
 .article-preview-card {
   width: 640px;
   cursor: pointer;
-  margin: 1rem;
-  margin-right: 0;
-  box-shadow: 0 2px 8px rgba(0,0,0, 0.125), 0 2px 4px rgba(0,0,0, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.125), 0 2px 4px rgba(0, 0, 0, 0.25);
 
   /* & .inner-wrapper {
   } */
@@ -83,7 +84,7 @@ export default {
     height: auto;
 
     & .image {
-      flex: 0 0 160px;
+      flex: 0 0 220px;
       background-size: cover;
       background-position: center;
 
@@ -93,7 +94,7 @@ export default {
     }
 
     & .info {
-      height: 240px;
+      height: 320px;
     }
   }
 }

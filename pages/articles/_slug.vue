@@ -7,6 +7,11 @@
     >
       <!-- ARTICLE -->
       <div class="article-body">
+        <!-- IMAGE (small) -->
+        <div class="block lg:hidden article-prevent-image-stretch mb-8">
+          <img :src="article.main_img" :alt="article.title" />
+        </div>
+
         <TheTags :tags="article.tags" />
 
         <!-- Heading -->
@@ -26,8 +31,17 @@
         <div class="main-text" v-html="article.main_text" />
       </div>
 
-      <!-- IMAGE -->
-      <div class="article-prevent-image-stretch pl-4 md:pl-8 lg:pl-16">
+      <!-- IMAGE (large) -->
+      <div
+        class="
+          hidden
+          lg:block
+          article-prevent-image-stretch
+          pl-4
+          md:pl-8
+          lg:pl-16
+        "
+      >
         <img :src="article.main_img" :alt="article.title" />
       </div>
     </article>
@@ -48,7 +62,7 @@ const formatDatetime = (dt) => {
 }
 
 export default {
-  components: {AuthorInfo},
+  components: { AuthorInfo },
 
   async asyncData({ $http, env, params }) {
     const prefix = env.apiPrefix
@@ -157,7 +171,7 @@ article.article-detail {
     & .tags {
       opacity: 0.33;
     }
-    
+
     & .main-text {
       max-width: 100%;
 

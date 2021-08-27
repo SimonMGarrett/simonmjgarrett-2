@@ -1,10 +1,24 @@
 <template>
   <div class="article-preview-cards tramlined">
-    <h2 class="no-top text-center lg:text-right">Displaying <span class="display-message">{{ displayMessage }}</span> </h2>
+    <h2 class="no-top text-center lg:text-right">
+      Displaying <span class="display-message">{{ displayMessage }}</span>
+    </h2>
 
     <div class="margin-shifted-inner flex justify-between">
       <div class="options hidden lg:block">
-        <div class="card sidebar-card tags bg-gray-700 text-white p-8 rounded-none mt-4 mb-12">
+        <div
+          class="
+            card
+            sidebar-card
+            tags
+            bg-gray-600
+            text-white
+            p-8
+            rounded-none
+            mt-4
+            mb-12
+          "
+        >
           <p class="lead">TAGS</p>
           <div class="item-list">
             <ul class="mt-4 font-extralight">
@@ -20,14 +34,23 @@
           </div>
         </div>
 
-        <div class="card sidebar-card catagories bg-gray-200 text-gray-800 p-8 rounded-none mb-12">
+        <div
+          class="
+            card
+            sidebar-card
+            catagories
+            bg-gray-200
+            text-gray-800
+            p-8
+            rounded-none
+            mb-12
+          "
+        >
           <p class="lead">CATAGORIES</p>
           <div class="item-list">
             <ul class="mt-4 font-extralight">
               <li>
-                <a class="smjg-link underline" href="/">
-                  All
-                </a>
+                <a class="smjg-link underline" href="/"> All </a>
               </li>
               <li>
                 <a class="smjg-link underline" href="/?content_type=article">
@@ -43,7 +66,18 @@
           </div>
         </div>
 
-        <div class="card sidebar-card find-out-more bg-gray-200 text-gray-800 p-8 rounded-none mb-12">
+        <div
+          class="
+            card
+            sidebar-card
+            find-out-more
+            bg-gray-200
+            text-gray-800
+            p-8
+            rounded-none
+            mb-12
+          "
+        >
           <p class="lead">FIND OUT MORE</p>
           <div class="item-list">
             <ul class="mt-4 font-extralight">
@@ -133,7 +167,8 @@ export default {
   async asyncData({ query, env, $http }) {
     // Build the query string from the query Object. If the query Object has
     // one key, the value is a string; if it has two, the value is an array.
-    let qs = 'sort=-date_updated&filter[status][_eq]=published&fields=*,tags.tag_id.*'
+    let qs =
+      'sort=-date_updated&filter[status][_eq]=published&fields=*,tags.tag_id.*'
     let displayMessage = ''
 
     // 1 - search
@@ -149,7 +184,7 @@ export default {
         qs += `&search=${item}`
         displayMessage += `'${item}'`
       })
-      displayMessage = " in "
+      displayMessage = ' in '
     }
 
     // 2 - tags (doesn't work, so see below)
@@ -206,7 +241,9 @@ export default {
 
     const tagsObj = await $http.$get(`${prefix}/items/tag/`)
     const tags = tagsObj.data
-    tags.sort((a, b) => { return b.articles.length - a.articles.length })
+    tags.sort((a, b) => {
+      return b.articles.length - a.articles.length
+    })
 
     return { articles: cleanedArticles, query, tags, displayMessage }
   },
@@ -218,7 +255,7 @@ export default {
         mdiLinkedin,
         mdiGithub,
       },
-      displayMessage: 'all notes and articles'
+      displayMessage: 'all notes and articles',
     }
   },
 
@@ -226,45 +263,45 @@ export default {
     // nicked from Vue Router
     stringifyQuery(obj) {
       const encodeReserveRE = /[!'()*]/g
-      const encodeReserveReplacer = c => '%' + c.charCodeAt(0).toString(16)
+      const encodeReserveReplacer = (c) => '%' + c.charCodeAt(0).toString(16)
       const commaRE = /%2C/g
-      const encode = str =>
+      const encode = (str) =>
         encodeURIComponent(str)
           .replace(encodeReserveRE, encodeReserveReplacer)
           .replace(commaRE, ',')
-          
+
       const res = obj
         ? Object.keys(obj)
-          .map(key => {
-            const val = obj[key]
+            .map((key) => {
+              const val = obj[key]
 
-            if (val === undefined) {
-              return ''
-            }
+              if (val === undefined) {
+                return ''
+              }
 
-            if (val === null) {
-              return encode(key)
-            }
+              if (val === null) {
+                return encode(key)
+              }
 
-            if (Array.isArray(val)) {
-              const result = []
-              val.forEach(val2 => {
-                if (val2 === undefined) {
-                  return
-                }
-                if (val2 === null) {
-                  result.push(encode(key))
-                } else {
-                  result.push(encode(key) + '=' + encode(val2))
-                }
-              })
-              return result.join('&')
-            }
+              if (Array.isArray(val)) {
+                const result = []
+                val.forEach((val2) => {
+                  if (val2 === undefined) {
+                    return
+                  }
+                  if (val2 === null) {
+                    result.push(encode(key))
+                  } else {
+                    result.push(encode(key) + '=' + encode(val2))
+                  }
+                })
+                return result.join('&')
+              }
 
-            return encode(key) + '=' + encode(val)
-          })
-          .filter(x => x.length > 0)
-          .join('&')
+              return encode(key) + '=' + encode(val)
+            })
+            .filter((x) => x.length > 0)
+            .join('&')
         : null
       return res ? `?${res}` : ''
     },
@@ -283,14 +320,13 @@ export default {
   & .lead {
     letter-spacing: 1px;
   }
-} 
+}
 
 .article-preview-cards {
-
   & .margin-shifted-inner {
     display: flex;
     flex-wrap: no-wrap;
-    
+
     /* margin: 0 -1rem 0 0; */
     width: 100%;
 
@@ -308,7 +344,7 @@ export default {
 
 @media (min-width: 1024px) {
   .lg\:justify-items-end {
-      justify-content: flex-end;
+    justify-content: flex-end;
   }
 }
 </style>
