@@ -62,9 +62,6 @@ export default {
       // Get all articles
       const articlesObj = await axios.get(`https://api.darkgatecloud.com/items/article/?fields=slug`)
       const articleSlugs = articlesObj.data.data;
-
-      console.log('articleSlugs', articleSlugs)
-
       const rtnArr = articleSlugs.map((elem) => {
         return {
           route: `/articles/${elem.slug}`,
