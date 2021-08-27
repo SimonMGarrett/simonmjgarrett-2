@@ -63,21 +63,13 @@
 
         <div class="hidden px-2 mx-2 navbar-center lg:flex">
           <div class="flex items-stretch">
-            <a class="mx-8 smjg-link" href="/">
-              Home
-            </a>
-            <a class="mx-8 smjg-link" href="/articles">
+            <a class="mx-8 smjg-link" href="/"> Home/All </a>
+            <a class="mx-8 smjg-link" href="/?content_type=article">
               Articles
             </a>
-            <a class="mx-8 smjg-link" href="/notes">
-              Notes
-            </a>
-            <a class="mx-8 smjg-link" href="/about">
-              About
-            </a>
-            <a class="mx-8 smjg-link" href="/contact">
-              Contact
-            </a>
+            <a class="mx-8 smjg-link" href="/?content_type=note"> Notes </a>
+            <a class="mx-8 smjg-link" href="/about"> About </a>
+            <a class="mx-8 smjg-link" href="/contact"> Contact </a>
           </div>
         </div>
 
@@ -122,8 +114,6 @@ export default {
 
       // Build the query string
       let qs = ''
-
-      // 1 - search
       if (query) {
         const searchArr = query.split(' ')
         searchArr.forEach((item, indx) => {
@@ -134,11 +124,10 @@ export default {
         })
       }
 
-      console.log('query', query, 'qs', qs)
-
+      // Call the index page (homepage, but also other pages) with the correct query string
       location.href = `${location.origin}/?${qs}`
-    }
-  }
+    },
+  },
 }
 </script>
 

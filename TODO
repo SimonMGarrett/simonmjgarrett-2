@@ -4,18 +4,28 @@ HEADER
 ✔ Settle on choice of links @done(21-08-26 13:56)
 ✔ Setup social accounts @done(21-08-26 13:56)
 
-SEARCH RESULTS PAGE
-☐ Create it!
-☐ Only show PUBLISHED articles and notes, both in the search results and the index page (which will probably end up as a search results component)
+SEARCH RESULTS PAGE (really it's the index page that can be used as homepage, article page, notes page etc)
+✔ Create it! @done(21-08-26 18:56)
+✔ Only show PUBLISHED articles and notes, both in the search results and the index page (which will probably end up as a search results component) @done(21-08-26 19:30)
 
-ARTICLE CARD
+ARTICLE PREVIEW CARD
 ✔ Fix date format @done(21-08-25 09:27)
+☐ Make a tags component
+☐ Make an author component
 ☐ Get tags working:
   ☐ (a) so they are the correct tags
   ☐ (b) so clicking them takes us to a search results page for that tag
+☐ Consider having 'Tags', 'Links' sections etc as a sidebar to the left of the cards (and on Article + Note)
 
-ARTICLE PAGE
+ARTICLE (_slug) PAGE
 ☐ Sort out head() data
+☐ Design the page properly
+☐ Use the same components created in ARTICLE PREVIEW CARD
+
+NOTES (_slug + Directus)
+☐ Create the Note table in Directus, perhaps with slight changes from the Article table
+☐ Create the notes, based on the code for the articles
+☐ Design the page, though it will be largely the same as Articles
 
 ABOUT PAGE
 ☐ Keep it short but make it tug on the heartstrings.
@@ -32,9 +42,6 @@ FOOTER
 ☐ Add section above the footer (separate from it but at the bottom of each page) "Hello, I'm Simon, the writer of this blog"
 ☐ Add other 'always at the bottom' sections like 'prev', 'next' articles (by date), and a triple of random articles (might need a small card for these).
 ☐ Subscribe form, to be notified of new posts
-
-REFACTOR
-☐ Put the avatar code in a generic component or use the BNB component that exists.
 
 SOCIAL
 ☐ Join local Aber groups, Coding groups (and contribute), etc. Maybe do more on Stackoverflow, looking for questions that I can provide value for.

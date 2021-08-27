@@ -50,6 +50,11 @@ export default {
     // proxyHeaders: false
   },
 
+  // ENV vars
+  env: {
+    apiPrefix: 'http://api.darkgatecloud.com:8055',
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {

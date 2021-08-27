@@ -1,18 +1,12 @@
 <template>
   <div class="article-preview-card card shadow-md rounded-none bg-white m-3">
-    <router-link
-      :to="`/articles/${article.slug}`"
-      class="wrapper-link"
-    >
+    <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
       <figure class="image w-full">
         <img :src="article.main_img" alt="Article image" />
       </figure>
 
       <div class="card-body">
-        <div class="tags w-full">
-          <div class="badge">Tag2</div>
-          <div class="badge">Tag2</div>
-        </div>
+        <TheTags :tags="article.tags" />
 
         <div class="info w-full">
           <div class="no-top title mt-4 mb-2">{{ article.title }}</div>

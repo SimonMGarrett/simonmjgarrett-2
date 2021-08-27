@@ -22,34 +22,32 @@
 
       <!-- IMAGE -->
       <div class="article-prevent-image-stretch pl-4 md:pl-8 lg:pl-16">
-        <img
-          :src="article.main_img"
-          :alt="article.title"
-        />
+        <img :src="article.main_img" :alt="article.title" />
       </div>
     </article>
   </div>
 </template>
 
 <script>
-import 'highlight.js/styles/base16/ia-dark.css';
-import hljs from 'highlight.js';
-import javascript from 'highlight.js/lib/languages/javascript';
-hljs.registerLanguage('javascript', javascript);
+import 'highlight.js/styles/base16/ia-dark.css'
+import hljs from 'highlight.js'
+import javascript from 'highlight.js/lib/languages/javascript'
+hljs.registerLanguage('javascript', javascript)
 
 const formatDatetime = (dt) => {
-  const localeStr = (new Date(dt)).toLocaleString()
+  const localeStr = new Date(dt).toLocaleString()
   const tidiedUp = localeStr.replace(',', ' @').slice(0, -3)
   return tidiedUp
 }
 
 export default {
-  components: {
-  },
+  components: {},
 
-  async asyncData({ $http, params }) {
-    const prefix = 'http://api.darkgatecloud.com:8055' // TODO: get this from somewhere central
-    const articlesObj = await $http.$get(`${prefix}/items/article?filter[slug][_eq]=${params.slug}`)
+  async asyncData({ $http, env, params }) {
+    const prefix = env.apiPrefix
+    const articlesObj = await $http.$get(
+      `${prefix}/items/article?filter[slug][_eq]=${params.slug}`
+    )
     const article = articlesObj.data[0]
 
     article.main_img = `${prefix}/assets/${article.main_img}`
@@ -109,8 +107,8 @@ export default {
   mounted() {
     // Syntax highlighting for code blocks
     document.querySelectorAll('pre code').forEach((el) => {
-      hljs.highlightElement(el);
-    });
+      hljs.highlightElement(el)
+    })
   },
 
   methods: {
@@ -174,7 +172,5 @@ article.article-detail {
   color: #eee;
   text-align: right;
   padding-right: 0.5rem;
-
 }
-
 </style>
