@@ -1,9 +1,5 @@
 <template>
   <div class="article-preview-cards tramlined">
-    <h2 class="no-top text-center lg:text-right">
-      Displaying <span class="display-message">{{ displayMessage }}</span>
-    </h2>
-
     <div class="margin-shifted-inner flex justify-between">
       <div class="options hidden lg:block">
         <div
@@ -136,6 +132,10 @@
 
       <div class="cards justify-center">
         <div>
+          <h2 class="no-top text-center">
+            Displaying <span class="display-message">{{ displayMessage }}</span>
+          </h2>
+
           <ArticlePreviewCard
             v-for="article in articles"
             :key="article.id"

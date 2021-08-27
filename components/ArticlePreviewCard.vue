@@ -3,16 +3,14 @@
     <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
       <div class="inner-wrapper flex">
         <figure
-          class="image w-full"
+          class="image"
           :style="`background-image: url(${article.main_img})`"
         >
           <img class="image-img" :src="article.main_img" alt="Article image" />
         </figure>
 
-        <div class="card-body justify-self-center self-center py-0 pt-4">
-          <!-- <TheTags :tags="article.tags" /> -->
-
-          <div class="info w-full">
+        <div class="card-body pt-6 pb-4">
+          <div class="info">
             <div class="title mt-0 mb-2">{{ article.title }}</div>
             <div class="subtitle mb-4">{{ article.subtitle }}</div>
 
@@ -57,10 +55,6 @@ export default {
   & .image {
     /* padding-right: 3rem; */
     flex: 0 0 320px;
-  }
-
-  & .tags {
-    opacity: 0.33;
   }
 
   & .info {
