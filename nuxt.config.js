@@ -54,13 +54,13 @@ export default {
 
   // ENV vars
   env: {
-    apiPrefix: 'http://api.darkgatecloud.com:8055',
+    apiPrefix: 'https://api.darkgatecloud.com',
   },
 
   generate: {
     async routes () {
       // Get all articles
-      const articlesObj = await axios.get(`http://api.darkgatecloud.com:8055/items/article/?fields=slug`)
+      const articlesObj = await axios.get(`https://api.darkgatecloud.com/items/article/?fields=slug`)
       const articleSlugs = articlesObj.data.data;
 
       console.log('articleSlugs', articleSlugs)
