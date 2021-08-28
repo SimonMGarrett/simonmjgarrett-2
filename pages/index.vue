@@ -1,7 +1,7 @@
 <template>
   <div class="article-preview-cards tramlined">
     <div class="margin-shifted-inner flex justify-between">
-      <div class="options hidden lg:block">
+      <div class="options hidden lg:block" style="position: relative; top: 8px">
         <div
           class="
             card
@@ -11,12 +11,13 @@
             text-white
             p-8
             rounded-none
-            mt-4
+            mt-0
             mb-12
           "
         >
-          <p class="lead">TAGS</p>
           <div class="item-list">
+            <p class="lead pt-0 mt-0">TAGS</p>
+
             <ul class="mt-4 font-extralight">
               <li
                 v-for="tag in tags"
@@ -42,8 +43,9 @@
             mb-12
           "
         >
-          <p class="lead">CATAGORIES</p>
           <div class="item-list">
+            <p class="lead pt-0 mt-0">CATAGORIES</p>
+
             <ul class="mt-4 font-extralight">
               <li>
                 <a class="smjg-link underline" href="/"> All </a>
@@ -74,9 +76,10 @@
             mb-12
           "
         >
-          <p class="lead">FIND OUT MORE</p>
           <div class="item-list">
-            <ul class="mt-4 font-extralight">
+            <p class="lead pt-0 mt-0 mb-6">FIND OUT MORE</p>
+
+            <ul class="font-extralight">
               <li>
                 <a
                   rel="noopener"
@@ -319,6 +322,7 @@ export default {
 .sidebar-card {
   & .lead {
     letter-spacing: 1px;
+    font-weight: 500;
   }
 }
 
