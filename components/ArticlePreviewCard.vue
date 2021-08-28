@@ -1,7 +1,7 @@
 <template>
   <div class="article-preview-card card rounded-none bg-white m-4 lg:mr-0">
     <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
-      <div class="inner-wrapper flex">
+      <div class="inner-wrapper block md:flex">
         <figure
           class="image"
           :style="`background-image: url(${article.main_img})`"
@@ -74,22 +74,19 @@ export default {
 
 @media (max-width: 690px) {
   .article-preview-card {
-    width: 440px;
-    height: auto;
+    width: 360px;
+    /* height: auto; */
 
-    & .image {
+    /* & .image {
       flex: 0 0 220px;
       background-size: cover;
       background-position: center;
 
-      & .image-img {
-        display: none;
-      }
     }
 
     & .info {
       height: 320px;
-    }
+    } */
   }
 }
 </style>
