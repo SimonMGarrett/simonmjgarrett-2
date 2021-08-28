@@ -1,7 +1,12 @@
 <template>
   <div class="article-preview-card card rounded-none bg-white m-4 lg:mr-0">
     <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
-      <div class="inner-wrapper block md:flex">
+      <div
+        class="inner-wrapper block md:flex"
+        :class="
+          article.readership === 'article' ? 'article-ribbon' : 'note-ribbon'
+        "
+      >
         <figure
           class="image"
           :style="`background-image: url(${article.main_img})`"

@@ -59,3 +59,54 @@
     @apply text-gray-500 hover:underline hover:text-gray-700;
   }
 }
+
+@layer components {
+  .article-ribbon {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      transform: rotate(315deg);
+      transform-origin: center;
+      width: 120px;
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+      background-color: #b22;
+      color: #fff;
+      left: -32px;
+      top: 16px;
+      text-align: center;
+      content: 'Article';
+      z-index: 2;
+      opacity: 0.8;
+    }
+  }
+  .note-ribbon {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &::before {
+      position: absolute;
+      display: inline-block;
+      transform: rotate(315deg);
+      transform-origin: center;
+      width: 120px;
+      height: 20px;
+      font-size: 14px;
+      line-height: 20px;
+      background-color: #227;
+      color: #fff;
+      left: -32px;
+      top: 16px;
+      text-align: center;
+      content: 'Note';
+      z-index: 2;
+      opacity: 0.85;
+    }
+  }
+}
