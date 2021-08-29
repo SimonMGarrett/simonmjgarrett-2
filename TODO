@@ -18,6 +18,7 @@ ARTICLE PREVIEW CARD
   ✔ (a) so they are the correct tags @done(21-08-27 13:37)
   ✔ (b) so clicking them takes us to a search results page for that tag @done(21-08-27 13:37)
 ✔ Consider having 'Tags', 'Links' sections etc as a sidebar to the left of the cards (and on Article + Note) @done(21-08-27 15:55)
+☐ Only request the exact data we need
 
 ARTICLE (_slug) PAGE
 ☐ Sort out head() data

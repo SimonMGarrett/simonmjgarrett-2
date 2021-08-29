@@ -131,30 +131,6 @@ export default {
       hljs.highlightElement(el)
     })
   },
-
-  methods: {
-    // ordered by date, excluding 'exclude' list, first random 'numberToShow' articles chosen
-    getPopularArticles() {
-      // const innerthis = this
-      // this.$content('articles')
-      //   .where({ stub: { $nin: [this.article.slug] } })
-      //   .limit(this.numberOfPopularArticlesToShow)
-      //   .sortBy({ key: 'createdAt', direction: 'desc' })
-      //   .fetch()
-      //   .then((articles) => {
-      //     this.popularArticles = []
-      //     // fix images
-      //     articles.forEach((article) => {
-      //       console.log('article', article) // eslint-disable-line no-console
-      //       article.createdAt = innerthis.$formatDate(article.createdAt)
-      //       article.img = require(`@/assets/img/${article.img}`)
-      //       article.author.img = require(`@/assets/img/${article.author.img}`)
-      //       this.popularArticles.push(article)
-      //     })
-      //     return true
-      //   })
-    },
-  },
 }
 </script>
 

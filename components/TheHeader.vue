@@ -64,10 +64,18 @@
         <div class="flex px-2 mx-auto lg:mx-2 navbar-center">
           <div class="flex items-stretch">
             <a class="mx-8 smjg-link" href="/"> Home/All </a>
-            <a class="hidden lg:block mx-8 smjg-link" href="/?content_type=article">
+            <a
+              class="hidden lg:block mx-8 smjg-link"
+              href="/?content_type=article"
+            >
               Articles
             </a>
-            <a class="hidden lg:block mx-8 smjg-link" href="/?content_type=note"> Notes </a>
+            <a
+              class="hidden lg:block mx-8 smjg-link"
+              href="/?content_type=note"
+            >
+              Notes
+            </a>
             <a class="mx-8 smjg-link" href="/about"> About </a>
             <a class="mx-8 smjg-link" href="/contact"> Contact </a>
           </div>
@@ -77,6 +85,7 @@
           <form action="" method="get" @submit.prevent="doSearch">
             <input
               type="text"
+              name="search1"
               placeholder="Search"
               class="search-terms s1 input input-bordered py-2 h-8 rounded-none"
             />
@@ -88,6 +97,7 @@
         <form action="" method="get" @submit.prevent="doSearch">
           <input
             type="text"
+            name="search2"
             placeholder="Search"
             class="search-terms s2 input input-bordered py-2 h-8 rounded-none"
           />
@@ -124,11 +134,12 @@ export default {
       const query2 = document.querySelector('.search-terms.s2').value
       const query = query1 || query2
 
+      // console.log('query', query, 'location.origin', location.origin)
+
       // Build the query string
       let qs = ''
       if (query) {
-        const searchArr = query.split(' ')
-        searchArr.forEach((item, indx) => {
+        query.split(' ').forEach((item, indx) => {
           if (indx > 0) {
             qs += '&'
           }
