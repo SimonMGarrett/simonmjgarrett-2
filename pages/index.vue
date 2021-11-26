@@ -1,136 +1,49 @@
 <template>
   <div class="article-preview-cards tramlined">
-    <div class="margin-shifted-inner flex justify-between">
-      <div class="options hidden lg:block">
-        <div
-          v-if="tags && tags.length"
-          class="
-            card
-            sidebar-card
-            tags
-            bg-gray-600
-            text-white
-            p-8
-            rounded-none
-            mt-0
-            mb-12
-          "
-        >
-          <div class="item-list">
-            <p class="lead pt-0 mt-0">TAGS</p>
-
-            <ul class="mt-4 font-extralight">
-              <li
-                v-for="tag in tags"
-                :key="tag.id"
-                class="underline cursor-pointer"
-                @click.stop.prevent="searchForTag(tag.text)"
-              >
-                {{ tag.text }} ({{ tag.articles.length }})
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div
-          class="
-            card
-            sidebar-card
-            categories
-            bg-gray-200
-            text-gray-800
-            p-8
-            rounded-none
-            mb-12
-          "
-        >
-          <div class="item-list">
-            <p class="lead pt-0 mt-0">CATEGORIES</p>
-
-            <ul class="mt-4 font-extralight">
-              <li>
-                <a class="smjg-link underline" href="/"> All </a>
-              </li>
-              <li>
-                <a class="smjg-link underline" href="/?content_type=article">
-                  Articles
-                </a>
-              </li>
-              <li>
-                <a class="smjg-link underline" href="/?content_type=note">
-                  Notes
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div
-          class="
-            card
-            sidebar-card
-            find-out-more
-            bg-gray-200
-            text-gray-800
-            p-8
-            rounded-none
-            mb-12
-          "
-        >
-          <div class="item-list">
-            <p class="lead pt-0 mt-0 mb-6">FIND OUT MORE</p>
-
-            <ul class="font-extralight">
-              <li>
-                <a
-                  rel="noopener"
-                  target="_blank"
-                  href="https://www.facebook.com/simonmgarrett/"
-                  class="social-icons mr-6"
-                  title="facebook"
-                >
-                  <bnb-icon
-                    :path-info="icons.mdiFacebook"
-                    class="text-gray-700"
-                    height="30"
-                    width="30"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener"
-                  target="_blank"
-                  href="https://www.linkedin.com/in/simon-garrett-768b0010/"
-                  class="social-icons mr-6"
-                  title="linked-in"
-                >
-                  <bnb-icon
-                    :path-info="icons.mdiLinkedin"
-                    class="text-gray-700"
-                    height="30"
-                    width="30"
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  rel="noopener"
-                  target="_blank"
-                  href="https://github.com/SimonMGarrett"
-                  class="social-icons"
-                  title="github"
-                >
-                  <bnb-icon
-                    :path-info="icons.mdiGithub"
-                    class="text-gray-700"
-                    height="30"
-                    width="30"
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
+    <div class="margin-shifted-inner">
+      <div class="options hidden lg:block mb-16">
+        <!-- TAGS + CATEGORIES -->
+        <div class="sidebar-card text-center">
+          <span class="text-gray-700 lead m-0 px-3 py-1 pr-0 inline-block"
+            >TAGS:</span
+          ><span
+            v-for="tag in tags"
+            :key="tag.id"
+            class="
+              text-gray-700
+              underline
+              cursor-pointer
+              font-extralight
+              m-0
+              px-3
+              py-1
+              inline-block
+            "
+            @click.stop.prevent="searchForTag(tag.text)"
+            >{{ tag.text }} ({{ tag.articles.length }})</span
+          ><span class="text-gray-700 lead m-0 px-3 py-1 pr-0 inline-block"
+            >CATEGORIES:</span
+          ><span
+            class="text-gray-700 font-extralight m-0 px-3 py-1 inline-block"
+          >
+            <a class="smjg-link underline text-gray-700" href="/">All</a></span
+          ><span
+            class="text-gray-700 font-extralight m-0 px-3 py-1 inline-block"
+          >
+            <a
+              class="smjg-link underline text-gray-700"
+              href="/?content_type=article"
+              >Articles</a
+            ></span
+          ><span
+            class="text-gray-700 font-extralight m-0 px-3 py-1 inline-block"
+          >
+            <a
+              class="smjg-link underline text-gray-700"
+              href="/?content_type=note"
+              >Notes</a
+            >
+          </span>
         </div>
       </div>
 
@@ -141,12 +54,71 @@
             <span class="display-message">{{ displayMessage }}</span>
           </h2>
 
-          <ArticlePreviewCard
-            v-for="article in articles"
-            :key="article.id"
-            :article="article"
-          >
-          </ArticlePreviewCard>
+          <div class="flex flex-wrap justify-center">
+            <ArticlePreviewCard
+              v-for="article in articles"
+              :key="article.id"
+              :article="article"
+            >
+            </ArticlePreviewCard>
+          </div>
+
+          <div class="social-footer mt-12 text-gray-800 text-center">
+            <!-- FIND OUT MORE -->
+            <span class="m-0 px-3 py-0 inline-block">
+              <a
+                rel="noopener"
+                target="_blank"
+                href="https://www.facebook.com/simonmgarrett/"
+                class="social-icons font-extralight mr-3"
+                title="facebook"
+              >
+                <bnb-icon
+                  :path-info="icons.mdiFacebook"
+                  class="text-gray-700"
+                  height="24"
+                  width="24"
+                  display="inline-block"
+                />
+              </a>
+            </span>
+
+            <span class="m-0 px-3 py-0 inline-block">
+              <a
+                rel="noopener"
+                target="_blank"
+                href="https://www.linkedin.com/in/simon-garrett-768b0010/"
+                class="social-icons font-extralight mr-3"
+                title="linked-in"
+              >
+                <bnb-icon
+                  :path-info="icons.mdiLinkedin"
+                  class="text-gray-700"
+                  height="24"
+                  width="24"
+                  display="inline-block"
+                />
+              </a>
+            </span>
+
+            <span class="m-0 px-3 py-0 inline-block">
+              <a
+                rel="noopener"
+                target="_blank"
+                href="https://github.com/SimonMGarrett"
+                class="social-icons font-extralight"
+                title="github"
+              >
+                <bnb-icon
+                  :path-info="icons.mdiGithub"
+                  class="text-gray-700"
+                  height="24"
+                  width="24"
+                  display="inline-block"
+                />
+              </a>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -343,11 +315,9 @@ export default {
 
 <style scoped>
 .article-preview-cards {
-  & .margin-shifted-inner {
-    display: flex;
-    flex-wrap: no-wrap;
+  padding: 0;
 
-    /* margin: 0 -1rem 0 0; */
+  & .margin-shifted-inner {
     width: 100%;
 
     & .options {

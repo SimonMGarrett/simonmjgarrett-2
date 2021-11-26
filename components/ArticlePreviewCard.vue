@@ -1,8 +1,8 @@
 <template>
-  <div class="article-preview-card card rounded-none bg-white m-4 lg:mr-0">
+  <div class="article-preview-card card rounded-none bg-white m-4">
     <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
       <div
-        class="inner-wrapper block md:flex"
+        class="inner-wrapper block"
         :class="
           article.readership === 'article' ? 'article-ribbon' : 'note-ribbon'
         "
@@ -50,7 +50,7 @@ export default {
 
 <style scoped>
 .article-preview-card {
-  width: 640px;
+  width: 320px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.125), 0 2px 4px rgba(0, 0, 0, 0.25);
 
