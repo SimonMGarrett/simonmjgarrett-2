@@ -3,7 +3,7 @@
     <div class="margin-shifted-inner">
       <div class="options hidden lg:block mb-16">
         <!-- TAGS + CATEGORIES -->
-        <div class="sidebar-card text-center">
+        <div class="sidebar-card text-center mt-4">
           <span class="text-gray-700 lead m-0 px-3 py-1 pr-0 inline-block"
             >TAGS:</span
           ><span
@@ -11,35 +11,35 @@
             :key="tag.id"
             class="
               text-gray-700
-              underline
+              smjg-link
               cursor-pointer
               font-extralight
               m-0
-              px-3
+              px-1
               py-1
               inline-block
             "
             @click.stop.prevent="searchForTag(tag.text)"
-            >{{ tag.text }} ({{ tag.articles.length }})</span
-          ><span class="text-gray-700 lead m-0 px-3 py-1 pr-0 inline-block"
+            >{{ tag.text }} <small>({{ tag.articles.length }})</small></span
+          ><span class="text-gray-700 lead m-0 px-1 py-1 pr-0 inline-block"
             >CATEGORIES:</span
           ><span
-            class="text-gray-700 font-extralight m-0 px-3 py-1 inline-block"
+            class="text-gray-700 font-extralight m-0 px-1 py-1 inline-block"
           >
-            <a class="smjg-link underline text-gray-700" href="/">All</a></span
+            <a class="smjg-link smjg-link text-gray-700" href="/">All</a></span
           ><span
-            class="text-gray-700 font-extralight m-0 px-3 py-1 inline-block"
+            class="text-gray-700 font-extralight m-0 px-1 py-1 inline-block"
           >
             <a
-              class="smjg-link underline text-gray-700"
+              class="smjg-link smjg-link text-gray-700"
               href="/?content_type=article"
               >Articles</a
             ></span
           ><span
-            class="text-gray-700 font-extralight m-0 px-3 py-1 inline-block"
+            class="text-gray-700 font-extralight m-0 px-1 py-1 inline-block"
           >
             <a
-              class="smjg-link underline text-gray-700"
+              class="smjg-link smjg-link text-gray-700"
               href="/?content_type=note"
               >Notes</a
             >
@@ -62,63 +62,6 @@
             >
             </ArticlePreviewCard>
           </div>
-
-          <div class="social-footer mt-12 text-gray-800 text-center">
-            <!-- FIND OUT MORE -->
-            <span class="m-0 px-3 py-0 inline-block">
-              <a
-                rel="noopener"
-                target="_blank"
-                href="https://www.facebook.com/simonmgarrett/"
-                class="social-icons font-extralight mr-3"
-                title="facebook"
-              >
-                <bnb-icon
-                  :path-info="icons.mdiFacebook"
-                  class="text-gray-700"
-                  height="24"
-                  width="24"
-                  display="inline-block"
-                />
-              </a>
-            </span>
-
-            <span class="m-0 px-3 py-0 inline-block">
-              <a
-                rel="noopener"
-                target="_blank"
-                href="https://www.linkedin.com/in/simon-garrett-768b0010/"
-                class="social-icons font-extralight mr-3"
-                title="linked-in"
-              >
-                <bnb-icon
-                  :path-info="icons.mdiLinkedin"
-                  class="text-gray-700"
-                  height="24"
-                  width="24"
-                  display="inline-block"
-                />
-              </a>
-            </span>
-
-            <span class="m-0 px-3 py-0 inline-block">
-              <a
-                rel="noopener"
-                target="_blank"
-                href="https://github.com/SimonMGarrett"
-                class="social-icons font-extralight"
-                title="github"
-              >
-                <bnb-icon
-                  :path-info="icons.mdiGithub"
-                  class="text-gray-700"
-                  height="24"
-                  width="24"
-                  display="inline-block"
-                />
-              </a>
-            </span>
-          </div>
         </div>
       </div>
     </div>
@@ -126,9 +69,6 @@
 </template>
 
 <script>
-import { mdiFacebook, mdiLinkedin, mdiGithub } from '@mdi/js'
-import { BNBIcon } from 'bertramandbean-component-library'
-
 // needs to be available for async
 const formatDatetime = (dt) => {
   const localeStr = new Date(dt).toLocaleString()
@@ -137,17 +77,8 @@ const formatDatetime = (dt) => {
 }
 
 export default {
-  components: {
-    'bnb-icon': BNBIcon,
-  },
-
   data() {
     return {
-      icons: {
-        mdiFacebook,
-        mdiLinkedin,
-        mdiGithub,
-      },
       displayMessage: 'all notes and articles',
       tags: [],
       articles: [],
@@ -210,9 +141,12 @@ export default {
 
       // 4 - go get everything we're supposed to get
       const prefix = env.apiPrefix
+      const timestamp = new Date().getTime()
       const cleanedArticles = []
       if (!query.type || query.type === 'articles') {
-        const articlesObj = await $http.$get(`${prefix}/items/article/?${qs}`)
+        const articlesObj = await $http.$get(
+          `${prefix}/items/article/?${qs}&bob=${timestamp}`
+        )
         const articles = articlesObj.data
 
         if (query.tag) {
@@ -327,8 +261,8 @@ export default {
 
       & .sidebar-card {
         & .lead {
-          letter-spacing: 1px;
-          font-weight: 500;
+          letter-spacing: 0.8px;
+          font-weight: 600;
         }
       }
     }

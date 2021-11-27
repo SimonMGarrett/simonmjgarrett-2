@@ -66,8 +66,9 @@ export default {
 
   async asyncData({ $http, env, params }) {
     const prefix = env.apiPrefix
+    const timestamp = new Date().getTime().toString()
     const articlesObj = await $http.$get(
-      `${prefix}/items/article?fields=*,tags.tag_id.*&filter[slug][_eq]=${params.slug}`
+      `${prefix}/items/article?fields=*,tags.tag_id.*&filter[slug][_eq]=${params.slug}&bob=${timestamp}`
     )
     const article = articlesObj.data[0]
 

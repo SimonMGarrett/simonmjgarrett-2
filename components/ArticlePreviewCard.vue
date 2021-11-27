@@ -1,6 +1,9 @@
 <template>
   <div class="article-preview-card card rounded-none bg-white m-4">
-    <router-link :to="`/articles/${article.slug}`" class="wrapper-link">
+    <router-link
+      :to="`/articles/${article.slug}`"
+      class="wrapper-link no-underline"
+    >
       <div
         class="inner-wrapper block"
         :class="

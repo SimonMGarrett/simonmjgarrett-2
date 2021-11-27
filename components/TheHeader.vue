@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrapper shadow-lg">
+  <div class="header-wrapper shadow-md">
     <header class="tramlined">
       <div
         class="logo mt-4 subpixel-antialiased cursor-pointer"
@@ -19,7 +19,7 @@
             rel="noopener"
             target="_blank"
             href="https://www.facebook.com/simonmgarrett/"
-            class="social-icons mr-6"
+            class="social-icons mr-6 no-underline"
             title="facebook"
           >
             <bnb-icon
@@ -34,7 +34,7 @@
             rel="noopener"
             target="_blank"
             href="https://www.linkedin.com/in/simon-garrett-768b0010/"
-            class="social-icons mr-6"
+            class="social-icons mr-6 no-underline"
             title="linked-in"
           >
             <bnb-icon
@@ -49,7 +49,7 @@
             rel="noopener"
             target="_blank"
             href="https://github.com/SimonMGarrett"
-            class="social-icons"
+            class="social-icons no-underline"
             title="github"
           >
             <bnb-icon
@@ -63,21 +63,21 @@
 
         <div class="flex px-2 mx-auto lg:mx-2 navbar-center">
           <div class="flex items-stretch">
-            <a class="mx-8 smjg-link" href="/"> Home/All </a>
+            <a class="mx-8 no-underline smjg-link" href="/"> Home/All </a>
             <a
-              class="hidden lg:block mx-8 smjg-link"
+              class="hidden lg:block mx-8 no-underline smjg-link"
               href="/?content_type=article"
             >
               Articles
             </a>
             <a
-              class="hidden lg:block mx-8 smjg-link"
+              class="hidden lg:block mx-8 no-underline smjg-link"
               href="/?content_type=note"
             >
               Notes
             </a>
-            <a class="mx-8 smjg-link" href="/about"> About </a>
-            <a class="mx-8 smjg-link" href="/contact"> Contact </a>
+            <a class="mx-8 no-underline smjg-link" href="/about"> About </a>
+            <a class="mx-8 no-underline smjg-link" href="/contact"> Contact </a>
           </div>
         </div>
 
@@ -160,6 +160,7 @@ export default {
   position: fixed;
   z-index: 2;
   width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
   & header {
     text-align: center;

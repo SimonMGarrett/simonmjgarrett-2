@@ -1,51 +1,37 @@
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
-  // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'simonmjgarrett-2',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      { src: 'https://plausible.io/js/plausible.js', defer: true, dataDomain: "simonmgarrett.com" },
-      { src: "https://js.hcaptcha.com/1/api.js", async: true, defer: true }
-    ]
+      // {
+      //   src: 'https://plausible.io/js/plausible.js',
+      //   defer: true,
+      //   dataDomain: 'simonmgarrett.com',
+      // },
+      { src: 'https://js.hcaptcha.com/1/api.js', async: true, defer: true },
+    ],
     // <script defer data-domain="simonmgarrett.com" src="https://plausible.io/js/plausible.js"></script>
   },
 
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  plugins: [],
 
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
-  ],
+  buildModules: ['@nuxtjs/eslint-module', '@nuxtjs/tailwindcss'],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxt/http',
     [
@@ -59,7 +45,7 @@ export default {
         native: false,
         polyfill: true,
         directiveOnly: false,
-        
+
         // Default image must be in the static folder
         defaultImage: '/images/default-image.png',
 
@@ -67,23 +53,16 @@ export default {
         loadingClass: 'isLoading',
         loadedClass: 'isLoaded',
         appendClass: 'lazyLoad',
-        
+
         observerConfig: {
           // See IntersectionObserver documentation
-        }
-      }
+        },
+      },
     ],
     ['@zeraton/nuxt-leaflet', {}],
-    // ["hcaptcha-nuxt", {
-    //   siteKey: 'ba75cb3c-8608-42c8-a832-d32d94f130d5',
-    //   secret: '0x3Ec36E40585Ba20ae864211c00F41da751F7CE91'
-    // }],
   ],
 
-  // HTTP module
-  http: {
-    // proxyHeaders: false
-  },
+  http: {},
 
   // ENV vars
   env: {
@@ -91,10 +70,12 @@ export default {
   },
 
   generate: {
-    async routes () {
+    async routes() {
       // Get all articles
-      const articlesObj = await axios.get(`https://api.darkgatecloud.com/items/article/?fields=slug`)
-      const articleSlugs = articlesObj.data.data;
+      const articlesObj = await axios.get(
+        `https://api.darkgatecloud.com/items/article/?fields=slug`
+      )
+      const articleSlugs = articlesObj.data.data
       const rtnArr = articleSlugs.map((elem) => {
         return {
           route: `/articles/${elem.slug}`,
@@ -112,7 +93,7 @@ export default {
     postcss: {
       plugins: {
         'postcss-nesting': {},
-      }
-    }
-  }
+      },
+    },
+  },
 }

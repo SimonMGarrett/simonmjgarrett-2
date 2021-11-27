@@ -17,6 +17,25 @@
 
   p {
     margin: 1rem 0;
+    letter-spacing: 0.25px;
+    font-weight: 300;
+  }
+
+  /* needed to highlight links in text from CMS */
+  a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .no-underline {
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: none;
+    }
   }
 
   .code-label {
