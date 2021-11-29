@@ -1,5 +1,5 @@
 <template>
-  <div class="header-wrapper shadow-md">
+  <div class="header-wrapper shadow-sm">
     <header class="tramlined">
       <div
         class="logo mt-4 subpixel-antialiased cursor-pointer"
@@ -160,7 +160,7 @@ export default {
   position: fixed;
   z-index: 2;
   width: 100%;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
   & header {
     text-align: center;
