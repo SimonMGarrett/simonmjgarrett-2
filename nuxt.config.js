@@ -16,14 +16,14 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     script: [
-      // {
-      //   src: 'https://plausible.io/js/plausible.js',
-      //   defer: true,
-      //   dataDomain: 'simonmgarrett.com',
-      // },
+      // <script defer data-domain="simonmgarrett.com" src="https://plausible.io/js/plausible.js"></script>
+      {
+        src: 'https://plausible.io/js/plausible.js',
+        defer: true,
+        dataDomain: 'simonmgarrett.com',
+      },
       { src: 'https://js.hcaptcha.com/1/api.js', async: true, defer: true },
     ],
-    // <script defer data-domain="simonmgarrett.com" src="https://plausible.io/js/plausible.js"></script>
   },
 
   plugins: [],
